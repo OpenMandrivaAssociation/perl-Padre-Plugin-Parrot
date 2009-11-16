@@ -14,6 +14,7 @@ Source0:    http://www.cpan.org/modules/by-module/Padre/%{upstream_name}-%{upstr
 BuildRequires: perl(Padre::Wx)
 BuildRequires: perl(Module::Build::Compat)
 BuildRequires: perl(Test::More)
+BuildRequires: x11-server-xvfb
 
 BuildArch: noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
@@ -29,7 +30,7 @@ no description found
 %make
 
 %check
-make test
+xvfb-run %make test
 
 %install
 rm -rf %buildroot
