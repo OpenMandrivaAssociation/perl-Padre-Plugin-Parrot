@@ -1,5 +1,5 @@
 %define upstream_name    Padre-Plugin-Parrot
-%define upstream_version 0.16
+%define upstream_version 0.26
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
