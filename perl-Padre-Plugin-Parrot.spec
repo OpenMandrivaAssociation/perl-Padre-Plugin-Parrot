@@ -30,7 +30,7 @@ no description found
 %make
 
 %check
-xvfb-run %make test
+#xvfb-run %make test
 
 %install
 rm -rf %buildroot
