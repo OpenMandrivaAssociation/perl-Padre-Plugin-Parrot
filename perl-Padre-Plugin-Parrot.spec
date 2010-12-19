@@ -1,9 +1,9 @@
 %define upstream_name    Padre-Plugin-Parrot
-%define upstream_version 0.26
+%define upstream_version 0.31
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Experimental Padre plugin that runs on Parrot
 License:    GPL+ or Artistic
@@ -13,6 +13,7 @@ Source0:    http://www.cpan.org/modules/by-module/Padre/%{upstream_name}-%{upstr
 
 BuildRequires: perl(Padre::Wx)
 BuildRequires: perl(Module::Build::Compat)
+BuildRequires: perl(Module::Install)
 BuildRequires: perl(Test::More)
 BuildRequires: x11-server-xvfb
 
@@ -26,15 +27,15 @@ no description found
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-%make
+%{__perl} Build.PL installdirs=vendor
+./Build
 
 %check
-#xvfb-run %make test
+#xvfb-run ./Build test
 
 %install
 rm -rf %buildroot
-%makeinstall_std
+./Build install destdir=%{buildroot}
 
 %clean
 rm -rf %buildroot
