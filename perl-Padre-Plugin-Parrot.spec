@@ -1,15 +1,13 @@
 %define upstream_name    Padre-Plugin-Parrot
-%define upstream_version 0.31
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	0.31
+Release:	7
 
 Summary:	Experimental Padre plugin that runs on Parrot
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://padre.perlide.org
-Source0:	https://cpan.metacpan.org/authors/id/A/AZ/AZAWAWI/Padre-Plugin-Parrot-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/A/AZ/AZAWAWI/Padre-Plugin-Parrot-%{version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Padre::Wx)
@@ -24,7 +22,7 @@ BuildArch:	noarch
 Experimental Padre plugin that runs on Parrot.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Build.PL installdirs=vendor
